@@ -32,10 +32,8 @@ public class Customer {
     }
 
     public void addAccount(Account acc) {
-        if (numOfAccounts < 10) {
-            accounts[numOfAccounts] = acc;
-            numOfAccounts++;
-        }
+        accounts[numOfAccounts] = acc;
+        numOfAccounts++;
     }
 
     @Override

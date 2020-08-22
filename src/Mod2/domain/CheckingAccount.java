@@ -26,7 +26,7 @@ public class CheckingAccount extends Account {
             balance = balance - amt;
             return true;
         }
-        return  false;
+        return false;
     }
 
 }

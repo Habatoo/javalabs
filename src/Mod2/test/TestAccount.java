@@ -30,8 +30,12 @@ public class TestAccount {
         System.out.println(myBank.getCustomers(0));
 
         myBank.getCustomers(0).getAccounts(0).deposit(2000);
-        myBank.getCustomers(0).getAccounts(0).withdraw(5500);
+        myBank.getCustomers(0).getAccounts(1).withdraw(5500);
+        ((SavingAccount) myBank.getCustomers(0).getAccounts(0)).addInterestRate();
+
         System.out.println(myBank.getCustomers(0).getAccounts(0).getBalance()+"\n");
         System.out.println(myBank.getCustomers(0).getAccounts(1).getBalance()+"\n");
+
+        System.out.println(myBank.getCustomers(1));
     }
 }
