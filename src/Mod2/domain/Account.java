@@ -5,14 +5,14 @@ package Mod2.domain;
  * @author habatoo
  * */
 public class Account {
-    private double balance;
+    protected double balance;
 
     /**
      * Constructor that provides initial balance
      * @param balance must be greater than 0
      * */
 
-    public Account(double balance) {
+    protected Account(double balance) {
         if (balance >= 0) {
             this.balance = balance;
         } else {
@@ -20,24 +20,32 @@ public class Account {
         }
     }
 
+    public Account() {
+        this.balance = 0;
+    }
+
     /**
      * Method to add money to account
      * @param amt a positive amount of money
      * */
-    public void deposit(double amt) {
+    public boolean deposit(double amt) {
         if (amt > 0) {
             balance += amt;
+            return true;
         }
+        return false;
     }
 
     /***
-     * Method to reduse money from account
+     * Method to take money from account
      * @param amt less than balance
      */
-    public void withdraw(double amt) {
+    public boolean withdraw(double amt) {
         if (amt <= balance) {
             balance -= amt;
+            return true;
         }
+        return false;
     }
 
     /**
