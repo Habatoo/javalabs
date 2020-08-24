@@ -1,6 +1,4 @@
-package Mod2.domain;
-
-import java.util.Arrays;
+package Mod4.domain;
 
 /**
  * Bank customer class

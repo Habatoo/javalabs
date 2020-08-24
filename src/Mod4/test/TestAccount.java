@@ -1,8 +1,6 @@
-package Mod2.test;
+package Mod4.test;
 
-import Mod2.domain.*;
-
-import java.util.Arrays;
+import Mod4.domain.*;
 
 /**
  * Test class for class Account
@@ -30,7 +28,14 @@ public class TestAccount {
         System.out.println(myBank.getCustomers(0));
 
         myBank.getCustomers(0).getAccounts(0).deposit(2000);
-        myBank.getCustomers(0).getAccounts(1).withdraw(5500);
+        try {
+            myBank.getCustomers(0).getAccounts(1).withdraw(6500);
+        } catch (OverdraftException ex) {
+            System.out.println(ex.getMessage()+": $"+ex.getDeficit()+"!\n");
+        }
+        catch (Exception ex) {
+            System.out.println("Something went wrong"+ex.getMessage());;
+        }
         ((SavingAccount) myBank.getCustomers(0).getAccounts(0)).addInterestRate();
 
         System.out.println(myBank.getCustomers(0).getAccounts(0).getBalance()+"\n");

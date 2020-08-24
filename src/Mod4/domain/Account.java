@@ -1,4 +1,4 @@
-package Mod2.domain;
+package Mod4.domain;
 
 /**
  * Bank Account class
@@ -40,7 +40,7 @@ public class Account {
      * Method to take money from account
      * @param amt less than balance
      */
-    public boolean withdraw(double amt) {
+    public boolean withdraw(double amt) throws Exception{
         if (amt <= balance) {
             balance -= amt;
             return true;

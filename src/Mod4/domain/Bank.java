@@ -1,4 +1,4 @@
-package Mod2.domain;
+package Mod4.domain;
 
 public class Bank {
     private Customer[] customers;

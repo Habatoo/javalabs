@@ -1,4 +1,4 @@
-package Mod2.domain;
+package Mod4.domain;
 
 /**
  * Checking account class
@@ -20,13 +20,16 @@ public class CheckingAccount extends Account {
      * Method to take money from Checking account
      * @param amt less than overdraftAmount
      */
-    @Override
-    public boolean withdraw(double amt) {
+    //@Override
+    public boolean withdraw(double amt) throws OverdraftException {
         if (amt <= balance + overdraftAmount) {
             balance = balance - amt;
             return true;
         }
-        return false;
+        throw new OverdraftException(amt - balance - overdraftAmount, "Error insuficient funds!");
     }
 
+    public double getOverdraftAmount() {
+        return overdraftAmount;
+    }
 }
