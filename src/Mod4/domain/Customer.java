@@ -1,20 +1,24 @@
 package Mod4.domain;
 
+import java.util.ArrayList;
+
 /**
  * Bank customer class
  * @author habatoo
  * */
 public class Customer {
     private int customerNumber;
-    private String fullName;
-    private Account[] accounts;
+    private String firstName;
+    private String lastName;
+    private ArrayList<Account> accounts;
 
     private static  int customerNumberBase = 1000;
     private int numOfAccounts;
 
-    public Customer(String fullName) {
-        accounts = new Account[10];
-        this.fullName = fullName;
+    public Customer(String firstName, String lastName) {
+        accounts = new ArrayList<>();
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.customerNumber = customerNumberBase++;
         this.numOfAccounts = 0;
     }
@@ -23,14 +27,14 @@ public class Customer {
      * Get all accounts of customer
      * */
     public Account getAccounts(int accNo) {
-        if (accNo < accounts.length && numOfAccounts != 0) {
-            return  accounts[accNo];
+        if (accNo < accounts.size() && numOfAccounts != 0) {
+            return  accounts.get(accNo);
         }
         return null;
     }
 
     public void addAccount(Account acc) {
-        accounts[numOfAccounts] = acc;
+        accounts.add(acc);
         numOfAccounts++;
     }
 
@@ -38,7 +42,7 @@ public class Customer {
     public String toString() {
         return "Customer" +
                 "customerNumber=" + customerNumber +
-                ", fullName='" + fullName + '\'' +
+                ", fullName='" + firstName + lastName + '\'' +
                 ", numOfAccounts=" + numOfAccounts;
     }
 }

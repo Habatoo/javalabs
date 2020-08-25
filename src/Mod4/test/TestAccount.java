@@ -13,8 +13,8 @@ public class TestAccount {
     public static void main(String[] args) {
         Bank bank = Bank.getBank();
 
-        Customer firstCustomer = new Customer("John Doe");
-        Customer secondCustomer = new Customer("Jane Doe");
+        Customer firstCustomer = new Customer("John", "Doe");
+        Customer secondCustomer = new Customer("Jane", "Doe");
 
         SavingAccount johnSaving = new SavingAccount(1000, 7);
         CheckingAccount johnAccount = new CheckingAccount(5000, 1000);
