@@ -1,12 +1,16 @@
 package Mod4.domain;
 
 public class Bank {
-    private Customer[] customers;
-    private int numOfClients;
+    private Customer[] customers = new Customer[1000];
+    private int numOfClients = 0;
+    private static Bank myBank = new Bank();
 
-    public Bank() {
-        customers = new Customer[1000];
-        numOfClients = 0;
+    public static Bank getBank() {
+        return myBank;
+    }
+
+    private Bank() {
+
     }
 
     public Customer getCustomers(int custNo) {
@@ -19,5 +23,9 @@ public class Bank {
     public void addCustomers(Customer newCustomer) {
         customers[numOfClients] = newCustomer;
         numOfClients++;
+    }
+
+    public int getNumOfClients() {
+        return numOfClients;
     }
 }
