@@ -38,11 +38,23 @@ public class Customer {
         numOfAccounts++;
     }
 
+    public int getNumOfAccounts() {
+        return numOfAccounts;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
     @Override
     public String toString() {
         return "Customer" +
                 "customerNumber=" + customerNumber +
-                ", fullName='" + firstName + lastName + '\'' +
+                ", fullName='" + firstName +", " + lastName + '\'' +
                 ", numOfAccounts=" + numOfAccounts;
     }
 }
