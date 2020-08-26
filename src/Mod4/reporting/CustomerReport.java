@@ -2,6 +2,8 @@ package Mod4.reporting;
 
 import Mod4.domain.*;
 
+import java.text.DecimalFormat;
+
 public class CustomerReport {
 
     public CustomerReport() {
@@ -33,19 +35,25 @@ public class CustomerReport {
                  acct_idx++) {
                 Account account = customer.getAccounts(acct_idx);
                 String account_type = "";
+                String account_params="";
+
+                DecimalFormat rateFormat = new DecimalFormat("###%");
+                DecimalFormat amountFormat = new DecimalFormat("$#####.00");
 
                 // Determinate the account type
                 if (account instanceof SavingAccount) {
-                    account_type = "Saving Acoount";
+                    account_type = "Saving Account";
+                    account_params = ", interest rate is " + rateFormat.format(((SavingAccount)account).getInterestRate());
                 } else if (account instanceof CheckingAccount) {
-                    account_type = "Checking Acoount";
+                    account_type = "Checking Account";
+                    account_params = ", overdraft amount is " + amountFormat.format(((CheckingAccount)account).getOverdraftAmount());
                 } else {
                     account_type = "Unknown Account Type";
                 }
 
                 // Print the current balance of the account
                 System.out.println("    " + account_type + ": current balance is "
-                        + account.getBalance());
+                        +amountFormat.format(account.getBalance()) + account_params);
             }
         }
     }
