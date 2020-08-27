@@ -13,7 +13,7 @@ public class SavingAccount extends Account {
     }
 
     public void addInterestRate() {
-        this.balance = this.balance + this.balance * interestRate / 100;
+        this.balance = this.balance * (1 + interestRate);
     }
 
     public double getInterestRate() {

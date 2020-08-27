@@ -38,7 +38,7 @@ public class CustomerReport {
                 String account_params="";
 
                 DecimalFormat rateFormat = new DecimalFormat("###%");
-                DecimalFormat amountFormat = new DecimalFormat("$#####.00");
+                DecimalFormat amountFormat = new DecimalFormat("$00.00");
 
                 // Determinate the account type
                 if (account instanceof SavingAccount) {
