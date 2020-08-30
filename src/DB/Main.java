@@ -15,12 +15,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-//public class Main {
-//    public static void main(String[] args) throws ClassNotFoundException, SQLException, IOException {
-//        String url = "jdbc:postgresql://localhost:5432/first_lesson";
-//        String userName = "postgres";
-//        String password = "1234567890";
-//        Class.forName("org.postgresql.Driver");
+
 
 public class Main {
     public static void main(String[] args) throws ClassNotFoundException, SQLException, IOException {
