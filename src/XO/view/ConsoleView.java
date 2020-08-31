@@ -4,7 +4,7 @@ import XO.controller.Game;
 
 public class ConsoleView {
 
-    private final Game game;
+    protected final Game game;
 
     public ConsoleView(final Game game) {
         this.game = game;
