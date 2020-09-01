@@ -1,10 +1,10 @@
 package XO.view;
 
-import XO.controller.Game;
+import XO.controller.GameController;
 
 public class AdvConsoleView extends ConsoleView{
 
-    public AdvConsoleView(final Game game) {
+    public AdvConsoleView(final GameController game) {
         super(game);
     }
 

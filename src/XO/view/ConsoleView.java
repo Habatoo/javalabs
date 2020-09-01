@@ -1,12 +1,12 @@
 package XO.view;
 
-import XO.controller.Game;
+import XO.controller.GameController;
 
 public class ConsoleView {
 
-    protected final Game game;
+    protected final GameController game;
 
-    public ConsoleView(final Game game) {
+    public ConsoleView(final GameController game) {
         this.game = game;
     }
 

@@ -1,9 +1,13 @@
 package XO;
 
-import XO.controller.Game;
+import XO.controller.GameController;
 import XO.model.Board;
+import XO.model.Player;
 import XO.view.AdvConsoleView;
 import XO.view.ConsoleView;
+import XO.model.Figure;
+
+import java.util.ServiceConfigurationError;
 
 /**
  * Main class, main point
@@ -13,13 +17,54 @@ public class Main {
 
     public static void main(String[] args) {
 
-        final Game game = new Game();
-        final AdvConsoleView advConsoleView = new AdvConsoleView(game);
-        final ConsoleView consoleView = new ConsoleView(game);
-        startGame(advConsoleView);
+//        testBoard();
+//        testFigure();
+//        testGameController();
+//        testPlayer();
+
+        Board board = new Board();
+        board.showBord();
+
+        final GameController gameController = new GameController("XO");
+        gameController.move(-2, -2);
+//        final AdvConsoleView advConsoleView = new AdvConsoleView(game);
+//        final ConsoleView consoleView = new ConsoleView(game);
+//        startGame(advConsoleView);
     }
 
-    private static void startGame(final ConsoleView advConsoleView) {
-        advConsoleView.showGameName();
+    private static void testFigure() {
+        final String figureName = "A";
+        final Figure figure = new Figure(figureName);
+        if (!figure.getFigure().equals(figureName)) {
+            throw new RuntimeException("Figure test failure");
+        }
+    }
+
+    private static void testPlayer() {
+        final String playerName = "Stas";
+        final Figure playerFigure = new Figure("A");
+        final Player player = new Player(playerName, playerFigure);
+        if (!player.getFigure().equals(playerFigure) || !player.getName().equals(playerName)) {
+            throw new RuntimeException("Player test failure");
+        }
+    }
+
+    private static void testBoard() {
+        final Board board = new Board();
+    }
+
+    private static void testGameController() {
+        final String gameName = "XO";
+        final GameController gameController = new GameController((gameName));
+        if (!gameController.getGameName().equals(gameName)) {
+            throw new RuntimeException("GameController test failure");
+        }
+        gameController.move(0, 0);
+        gameController.currentPlayer();
+    }
+
+    private static void startGame(final ConsoleView consoleView) {
+        consoleView.showGameName();
+        consoleView.showPlayerName();
     }
 }
