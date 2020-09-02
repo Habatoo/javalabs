@@ -6,7 +6,9 @@ import XO.model.Player;
 import XO.view.AdvConsoleView;
 import XO.view.ConsoleView;
 import XO.model.Figure;
+import XO.view.MenuView;
 
+import java.awt.*;
 import java.util.ServiceConfigurationError;
 
 /**
@@ -22,11 +24,15 @@ public class Main {
 //        testGameController();
 //        testPlayer();
 
-        Board board = new Board();
-        board.showBord();
+        MenuView menuView = new MenuView();
+        menuView.showMenuWithResult();
 
-        final GameController gameController = new GameController("XO");
-        gameController.move(-2, -2);
+//        Board board = new Board();
+//        board.initArray();
+//        board.showBord();
+//
+//        final GameController gameController = new GameController("XO", null, null);
+//        gameController.move(-2, -2);
 //        final AdvConsoleView advConsoleView = new AdvConsoleView(game);
 //        final ConsoleView consoleView = new ConsoleView(game);
 //        startGame(advConsoleView);
@@ -55,7 +61,7 @@ public class Main {
 
     private static void testGameController() {
         final String gameName = "XO";
-        final GameController gameController = new GameController((gameName));
+        final GameController gameController = new GameController(gameName, null, null);
         if (!gameController.getGameName().equals(gameName)) {
             throw new RuntimeException("GameController test failure");
         }

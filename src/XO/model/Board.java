@@ -9,10 +9,15 @@ public class Board {
 
     private static final int SIZE_FIELD = 9;
 
-    private Figure[] figures = new Figure[SIZE_FIELD];
+    private Figure[][] figures = new Figure[SIZE_FIELD][SIZE_FIELD];
+
+    public void initArray() {
+        figures[0][0] = new Figure("O");
+        figures[2][0] = new Figure("X");
+    }
 
     public void showBord() {
-        System.out.println(Arrays.toString(this.figures));
+        System.out.println(Arrays.deepToString(this.figures));
     }
 
 //    public void printBoard() {
